@@ -53,7 +53,7 @@ def soft_decode():
     for _ in range(10):
         det_outputs = inference(img)
     
-    cap = cv2.VideoCapture("rtsp://admin:dftaike888999@10.10.1.3:554/streaming/channels/101")
+    cap = cv2.VideoCapture("workspace/test.mp4")
     
     while (cap.isOpened()): 
         ret, frame = cap.read()
@@ -85,7 +85,7 @@ def hard_decode():
     engine_path = "./workspace/yolov8s_fp16.engine"
    
     import libffhdd as ffhdd
-    demuxer = ffhdd.FFmpegDemuxer("rtsp://admin:dftaike888999@10.10.1.3:554/streaming/channels/101")
+    demuxer = ffhdd.FFmpegDemuxer("workspace/test.mp4")
     output_type = ffhdd.FrameType.BGR
     decoder = ffhdd.CUVIDDecoder(
         bUseDeviceFrame=True,
